@@ -1,10 +1,8 @@
-package Laboratorul2;
 
-public class Element {
-
-	public void add(Section section) {
-		// TODO Auto-generated method stub
-		
-	}
+public interface Element {
+	public void add(Element e);
+	public void remove(Element e);
+	public void getChild(int index);
+	public void print();
 
 }
