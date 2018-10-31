@@ -2,54 +2,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Section implements Element{
-
-	private String title;
-	private List<Element> content = new ArrayList<Element>();
-	
-	public Section(String title){
-		this.title = title;
+String title;
+List<Element>e=new ArrayList<>();
+public Section(String title) {
+	this.title = title;
+}
+public void add(Paragraph paragraph) {
+	// TODO Auto-generated method stub
+	e.add(paragraph);
+}
+public void add(Element cap11) {
+	// TODO Auto-generated method stub
+	e.add(cap11);
+}
+public void print() {
+	System.out.println(title);
+	for(Element ele:e)
+	{
+		ele.print();
 	}
-	
-	public Section(String title, List<Element> content){
-		this.title = title;
-		this.content = content;
-	}
-	
-	@Override
-	public void add(Element e) {
-		content.add(e);
-		
-	}
-	@Override
-	public void remove(Element e) {
-		content.remove(e);		
-	}
-	@Override
-	public void getChild(int index) {
-		content.get(index);
-		
-	}
-	@Override
-	public void print() {
-		System.out.println(title);
-		for(Element elem : content){
-			elem.print();
-		}
-		
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public List<Element> getContent() {
-		return content;
-	}
-	public void setContent(List<Element> content) {
-		this.content = content;
-	}
-	
-	
-
+}
 }

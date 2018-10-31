@@ -1,13 +1,12 @@
 
-public class Author {
-	public String name;
-	public Author(String name) {
-		this.name=name;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+public class Author{
+String nume;
+public Author(String nume) {
+	this.nume = nume;
+}
+public void print() {
+	// TODO Auto-generated method stub
+	System.out.println(nume);
+}
+
 }

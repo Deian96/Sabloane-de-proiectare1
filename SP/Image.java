@@ -1,35 +1,22 @@
+import java.util.concurrent.TimeUnit;
 
-public class Image implements Element{
-	private String name;
-	public Image (String name) {
-		this.name = name;
+public class Image implements Element {
+String name;
+
+public Image(String name) {
+	this.name = name;
+	try {
+		TimeUnit.SECONDS.sleep(5);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
+}
+public void print() {
+	System.out.println(name);
+}
+public void add(Element e)
+{
 	
-	@Override
-	public void print(){
-		System.out.println("IMAGE");
-		System.out.println(name);
-	}
-	@Override
-	public void add(Element e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void remove(Element e) {
-		// TODO Auto-generated method stub
-		
-	}
-	@Override
-	public void getChild(int index) {
-		// TODO Auto-generated method stub
-		
-	}
-	
+}
 }
