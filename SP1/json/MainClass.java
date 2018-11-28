@@ -1,3 +1,4 @@
+
 package json;
 
 import java.io.IOException;
@@ -10,7 +11,7 @@ public class MainClass {
     JSONBuilder jsonBuilder = new JSONBuilder("book.json");
     jsonBuilder.build();
 
-    Element myBook = jsonBuilder.getResult();
+    singleton.model.Element myBook = jsonBuilder.getResult();
     myBook.print();
   }
 }

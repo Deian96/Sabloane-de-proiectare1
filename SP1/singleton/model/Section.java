@@ -1,9 +1,21 @@
-package json;
+/*
+ * Copyright (c) 2018 SSI Schaefer Noell GmbH
+ *
+ * $Header: $
+ */
+
+package singleton.model;
+
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author <a href="mailto:bario@ssi-schaefer-noell.com">bario</a>
+ * @version $Revision: $, $Date: $, $Author: $
+ */
+
 public class Section implements Element {
-  public String title;
+  private String title;
   private List<Element> content = new ArrayList<Element>();
 
   public String getName() {
@@ -18,40 +30,34 @@ public class Section implements Element {
     this.title = name;
   }
 
-  
-  public void add(javax.lang.model.element.Element e) {
-    this.content.add((Element) e);
+  @Override
+  public void add(Element element) {
+    this.content.add(element);
   }
 
-  
+  @Override
   public void remove(Element element) {
     this.content.remove(element);
   }
 
-  
+  @Override
   public Element getElement(int index) {
     return this.content.get(index);
   }
 
-  
+  @Override
   public void print() {
-	  System.out.println(title);
     for (Element element : content) {
       element.print();
     }
   }
 
-@Override
-public void accept(Visitor vis) {
-	for(Element e:this.content)
-		e.accept(vis);
-	vis.visit(this);
-}
-
-@Override
-public void add(Element element) {
-	// TODO Auto-generated method stub
-	
-}
+  @Override
+  public void accept(Visitor visitor) {
+    visitor.visit(this);
+    for (Element element : content) {
+      element.accept(visitor);
+    }
+  }
 
 }

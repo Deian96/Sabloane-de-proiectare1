@@ -1,6 +1,18 @@
-package json;
+/*
+ * Copyright (c) 2018 SSI Schaefer Noell GmbH
+ *
+ * $Header: $
+ */
+
+package singleton.model;
+
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * @author <a href="mailto:bario@ssi-schaefer-noell.com">bario</a>
+ * @version $Revision: $, $Date: $, $Author: $
+ */
 
 public class Book implements Element {
   private Author author;
@@ -19,46 +31,41 @@ public class Book implements Element {
     this.name = name;
   }
 
-  
+  @Override
   public void add(Element element) {
     this.content.add(element);
   }
 
-  
+  @Override
   public void remove(Element element) {
     this.content.remove(element);
   }
 
-  
+  @Override
   public Element getElement(int index) {
     return this.content.get(index);
   }
 
-  
+  @Override
   public void print() {
-	  System.out.println(name);
     for (Element element : content) {
-        
-
-    	element.print();
+      element.print();
     }
   }
-
 
   public Author getAuthor() {
     return author;
   }
 
-
   public void setAuthor(Author author) {
     this.author = author;
   }
 
-@Override
-public void accept(Visitor vis) {
-	
-	for(Element e:this.content)
-		e.accept(vis);
-	
-}
+  @Override
+  public void accept(Visitor visitor) {
+    for (Element element : content) {
+      element.accept(visitor);
+    }
+    visitor.visit(this);
+  }
 }
